@@ -1,0 +1,218 @@
+<navbar></navbar>
+<div class="card card-container" style="width: 5000px">
+  <div id="contenido">
+    <div class="container">
+      <div class="col-md-12">
+        <h1>Technician Maintenance</h1>
+        <table class="table table-bordered table-striped table-hover">
+          <thead>
+            <tr>
+              <th class="text-center">Category</th>
+              <th class="text-center">Name</th>
+              <th class="text-center">Lastname</th>
+              <th class="text-center">Created</th>
+              <th class="text-center">Created_By</th>
+              <th class="text-center">Modified</th>
+              <th class="text-center">Modified_By</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let custom of customs">
+              <td>{{ custom.Ticket_Category }}</td>
+              <td>{{ custom.Name }}</td>
+              <td>{{ custom.Lastname }}</td>
+              <td>{{ custom.Created }}</td>
+              <td>{{ custom.Created_By }}</td>
+              <td>{{ custom.Modified }}</td>
+              <td>{{ custom.Modified_By }}</td>
+
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-info"
+                  (click)="showeditTechnicianForm(custom)"
+                >
+                  <i class="fa fa-edit"></i>
+                </button>
+
+                <button
+                  class="btn btn-danger"
+                  (click)="removeTechnician(custom)"
+                >
+                  <i class="fa fa-minus"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button class="btn btn-success" (click)="showAddTechnicianForm()">
+          <i class="fa fa-plus"></i>
+        </button>
+        <br />
+        <br />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row dataform">
+  <div class="card1 card1-container1">
+    <div id="contenido1">
+      <div class="container">
+        <form *ngIf="TechnicianForm">
+          <h2>Add Assignment Details</h2>
+          <div class="col-sx-12">
+            <div class="form-group input-group">
+              <label>Technician:</label>
+              <select
+                class="form-control"
+                name="Technician"
+                [(ngModel)]="newTechnician.User_id"
+                type="text"
+              >
+                <option value="{{ user.id }}" *ngFor="let user of users">
+                  {{ user.Name }} {{ user.Lastname }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sx-12">
+            <div class="form-group input-group">
+              <label>Category:</label>
+              <select
+                class="form-control"
+                name="Category"
+                [(ngModel)]="newTechnician.Ticket_Category_id"
+                type="text"
+              >
+                <option
+                  value="{{ category.id }}"
+                  *ngFor="let category of categories"
+                >
+                  {{ category.Ticket_Category }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sx-12">
+            <div class="col-sx-12">
+              <label>Created By:</label
+              ><input
+                type="text"
+                readonly
+                select
+                class="form-control"
+                class="form-group input-group"
+                value="{{ Id }}"
+                [(ngModel)]="Id"
+                required
+                name="Created_By"
+                #Created_By="ngModel"
+              />
+            </div>
+          </div>
+          <div class="col-sx-12">
+            <label>
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="saveTechnician(newTechnician)"
+              >
+                Submit
+              </button>
+              <button
+                type="button"
+                class="btn btn-warning"
+                (click)="cancelNewTechnician()"
+              >
+                Cancel
+              </button>
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row dataform">
+  <div class="card2 card2-container2">
+    <div id="contenido2">
+      <div class="container">
+        <form *ngIf="editTechnicianForm">
+          <h2>Edit Assignment Details</h2>
+
+          <div class="col-sx-12">
+            <div class="form-group input-group">
+              <label>Technician:</label>
+              <select
+                class="form-control"
+                name="Technician"
+                [(ngModel)]="editedTechnician.User_id"
+                type="text"
+              >
+                <option value="{{ user.id }}" *ngFor="let user of users">
+                  {{ user.Name }} {{ user.Lastname }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sx-12">
+            <div class="form-group input-group">
+              <label>Category:</label>
+              <select
+                class="form-control"
+                name="Category"
+                [(ngModel)]="editedTechnician.Ticket_Category_id"
+                type="text"
+              >
+                <option
+                  value="{{ category.id }}"
+                  *ngFor="let category of categories"
+                >
+                  {{ category.Ticket_Category }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-sx-12">
+            <div class="col-sx-12">
+              <label>Modified By:</label
+              ><input
+                type="text"
+                readonly
+                select
+                class="form-control"
+                class="form-group input-group"
+                value="{{ Id }}"
+                [(ngModel)]="Id"
+                required
+                name="Modified_By"
+                #Modified_By="ngModel"
+              />
+            </div>
+          </div>
+          <div class="col-sx-12">
+            <label>
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="updateTechnician(editedTechnician)"
+              >
+                Submit
+              </button>
+              <button
+                type="button"
+                class="btn btn-warning"
+                (click)="cancelEdits()"
+              >
+                Cancel
+              </button>
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

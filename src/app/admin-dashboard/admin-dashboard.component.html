@@ -1,0 +1,200 @@
+<navbar></navbar>
+<chart1></chart1>
+<div id="contenido">
+  <div class="container">
+    <div class="col-md-12">
+      <h1>All Tickets</h1>
+      <table class="table table-bordered table-striped table-hover">
+        <thead>
+          <tr>
+            <th class="text-center">Ticket Status</th>
+            <th class="text-center">Ticket Category</th>
+            <th class="text-center">Technician</th>
+            <th class="text-center">Problem</th>
+            <th class="text-center">Ticket Number</th>
+            <th class="text-center">Created By</th>
+            <th class="text-center">Modified By</th>
+            <th class="text-center">Created</th>
+            <th class="text-center">Modified</th>
+            <th class="text-center">Technician Commment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let custom of customs">
+            <td>{{ custom.Ticket_Status }}</td>
+            <td>{{ custom.Ticket_Category }}</td>
+            <td>{{ custom.Name }} {{ custom.Lastname }}</td>
+            <td>{{ custom.Problem }}</td>
+            <td>{{ custom.Ticket_Number }}</td>
+
+            <td>{{ custom.Created_By }}</td>
+            <td>{{ custom.Modified_By }}</td>
+
+            <td>{{ custom.Created }}</td>
+            <td>{{ custom.Modified }}</td>
+            <td>{{ custom.Technician_Comment }}</td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-info"
+                (click)="showedit_Ticket_Category_Form(custom)"
+              >
+                <i class="fa fa-edit"></i>
+              </button>
+              <button class="btn btn-danger" (click)="removeUser(custom)">
+                <i class="fa fa-minus"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<pagination></pagination>
+
+<div class="card2 card2-container2" style="width: 290px">
+  <div id="contenido2">
+    <div class="container">
+      <form *ngIf="edit_Ticket_Category_Form">
+        <h2>Edit Ticket Details</h2>
+        <div class="col-sx-12">
+          <div class="col-sx-12">
+            <label>Ticket Status:</label>
+            <select
+              class="form-control"
+              name="status"
+              [(ngModel)]="editedTicket_Category.Ticket_Status_id"
+              type="text"
+            >
+              <option value="{{ status.id }}" *ngFor="let status of statuses">
+                {{ status.Ticket_Status }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-sx-12">
+          <label>Ticket Category:</label>
+          <select
+            class="form-control"
+            name="category"
+            [(ngModel)]="editedTicket_Category.Ticket_Category_id"
+            type="text"
+          >
+            <option
+              value="{{ category.id }}"
+              *ngFor="let category of categories"
+            >
+              {{ category.Ticket_Category }}
+            </option>
+          </select>
+        </div>
+
+        <div class="col-sx-12">
+          <label>Technician:</label>
+          <select
+            class="form-control"
+            name="technician"
+            [(ngModel)]="editedTicket_Category.User_id"
+            type="text"
+          >
+            <option value="{{ user.id }}" *ngFor="let user of users">
+              {{ user.Name }} {{ user.Lastname }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sx-12">
+            <label>Ticket Number</label>
+            <input
+              class="form-control"
+              type="text"
+              readonly
+              value="{{ custom.Ticket_Number }}"
+              select
+              class="form-control"
+              class="form-group input-group"
+              requiered
+              name="Ticket_Number"
+              [(ngModel)]="editedTicket_Category.Ticket_Number"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sx-12">
+            <label>Problem:</label>
+            <textarea
+              class="form-control"
+              type="text"
+              readonly
+              value="{{ custom.Problem }}"
+              maxlength="300"
+              name="Problem"
+              cols="30"
+              rows="10"
+              [(ngModel)]="editedTicket_Category.Problem"
+              class="form-control"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sx-12">
+            <label>Technician Comment:</label>
+            <textarea
+              required
+              maxlength="300"
+              type="text"
+              name="Technician_Comment"
+              [(ngModel)]="editedTicket_Category.Technician_Comment"
+              cols="30"
+              rows="10"
+              class="form-control"
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="col-sx-12">
+          <label>Modified By:</label
+          ><input
+            type="text"
+            readonly
+            select
+            class="form-control"
+            class="form-group input-group"
+            value="{{ Id }}"
+            [(ngModel)]="Id"
+            required
+            name="Modified_By"
+            #Modified_By="ngModel"
+          />
+        </div>
+
+        <div class="col-sx-12">
+          <label>
+            <button
+              type="button"
+              class="btn btn-lg btn-primary btn-block btn-signup"
+              (click)="updateTicket(editedTicket_Category)"
+            >
+              Submit
+            </button>
+          </label>
+          <label>
+            <button
+              type="button"
+              class="btn btn-lg btn-warning btn-block btn-signup"
+              (click)="cancelEdits()"
+            >
+              Cancel
+            </button>
+          </label>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

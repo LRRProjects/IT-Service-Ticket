@@ -1,0 +1,245 @@
+@media (min-width: 1000px) and (max-width: 1000px) {
+  #contenido {
+    padding-left: 0%;
+  }
+  button {
+    width: 10%;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1000px) {
+  #contenido {
+    padding-left: 0%;
+  }
+  button {
+    width: 10%;
+  }
+}
+@media (min-width: 1000px) {
+  #contenido {
+    padding-left: 0%;
+  }
+}
+
+table {
+  width: 1000%;
+}
+
+/*
+ * Specific styles of signin component
+ */
+/*
+ * General styles
+ */
+
+body,
+html {
+  height: 100%;
+}
+.background {
+  height: 662px;
+  width: 100%;
+  background-image: url("../image/background2.png");
+  opacity: 0.9;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+h2 {
+  text-align: center;
+}
+
+.card-container.card {
+  max-width: 1000px;
+  padding: 0px 0px;
+  opacity: 0.9;
+  margin-left: 210px;
+}
+
+/*
+ * Card component
+ */
+.card {
+  opacity: 0;
+  background-color: #f7f7f7;
+  /* just in case there no content*/
+  padding: 0px 0px 0px;
+  margin: 500px 190px 0px;
+  margin-top: 5px;
+  padding-left: 0px;
+  /* shadows and rounded borders */
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+body {
+  -webkit-transition: all 0.25s ease-out;
+  -moz-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+  background-color: lightslategrey;
+}
+
+/*
+ * Specific styles of signin component
+ */
+/*
+ * General styles
+ */
+
+body,
+html {
+  height: 100%;
+}
+.background {
+  height: 662px;
+  width: 100%;
+  background-image: url("../image/background2.png");
+  opacity: 0.9;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+h2 {
+  text-align: center;
+}
+
+.card1-container1.card {
+  max-width: 1000px;
+  padding: 0px 0px;
+  opacity: 0.9;
+}
+
+/*
+ * Card component
+ */
+.card1 {
+  opacity: 0.9;
+  background-color: #f7f7f7;
+  /* just in case there no content*/
+  padding: 0px 0px 0px;
+  margin: 500px 190px 0px;
+  margin-top: 30px;
+  padding-left: 0px;
+  /* shadows and rounded borders */
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+body {
+  -webkit-transition: all 0.25s ease-out;
+  -moz-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+  background-color: lightslategrey;
+}
+
+.dataform {
+  margin-left: 20px;
+}
+
+@media (min-width: 1000px) and (max-width: 1000px) {
+  #contenido1 {
+    padding-left: 0%;
+  }
+  button {
+    width: 10%;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1000px) {
+  #contenido1 {
+    padding-left: 0%;
+  }
+  button {
+    width: 10%;
+  }
+}
+@media (min-width: 1000px) {
+  #contenido1 {
+    padding-left: 0%;
+  }
+}
+
+/*
+ * Specific styles of signin component
+ */
+/*
+ * General styles
+ */
+
+body,
+html {
+  height: 100%;
+}
+.background {
+  height: 662px;
+  width: 100%;
+  background-image: url("../image/background2.png");
+  opacity: 0.9;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+h2 {
+  text-align: center;
+}
+
+.card2-container2.card {
+  max-width: 1000px;
+  padding: 0px 0px;
+  opacity: 0.9;
+}
+
+/*
+ * Card component
+ */
+.card2 {
+  opacity: 0.9;
+  background-color: #f7f7f7;
+  /* just in case there no content*/
+  padding: 0px 0px 0px;
+  margin: 500px 190px 0px;
+  margin-top: 30px;
+  padding-left: 0px;
+  /* shadows and rounded borders */
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+body {
+  -webkit-transition: all 0.25s ease-out;
+  -moz-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+  background-color: lightslategrey;
+}
+
+@media (min-width: 1000px) and (max-width: 1000px) {
+  #contenido2 {
+    padding-left: 0%;
+  }
+  button {
+    width: 10%;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1000px) {
+  #contenido2 {
+    padding-left: 0%;
+  }
+  button {
+    width: 10%;
+  }
+}
+@media (min-width: 1000px) {
+  #contenido2 {
+    padding-left: 0%;
+  }
+}

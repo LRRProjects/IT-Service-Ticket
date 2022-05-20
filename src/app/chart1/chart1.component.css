@@ -1,0 +1,28 @@
+@media (min-width: 1000px) and (max-width: 1000px) {
+  #contenido {
+    padding-left: 0%;
+  }
+  button {
+    width: 10%;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1000px) {
+  #contenido {
+    padding-left: 0%;
+  }
+  button {
+    width: 10%;
+  }
+}
+@media (min-width: 1000px) {
+  #contenido {
+    padding-left: 35%;
+    padding-bottom: 30px;
+  }
+}
+#chart {
+  margin-left: 60px;
+}
+#dataform {
+  margin-left: 60px;
+}

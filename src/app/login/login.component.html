@@ -1,0 +1,52 @@
+<div class="background">
+  <br />
+  <br />
+  <div class="container">
+    <div class="card card-container">
+      <h2><b>login</b></h2>
+      <br />
+      <form #UserLogin="ngForm" (ngSubmit)="login(UserLogin)">
+        <div class="form-group input-group">
+          <span style="display: block; width: 25px" class="input-group-addon"
+            ><i class="glyphicon glyphicon-user"></i
+          ></span>
+          <input
+            class="form-control"
+            name="Username"
+            ngModel
+            required
+            #Username="ngModel"
+            type="text"
+            placeholder="Username"
+            required
+          />
+        </div>
+        <div class="form-group input-group">
+          <span style="display: block; width: 25px" class="input-group-addon"
+            ><i class="glyphicon glyphicon-lock"></i
+          ></span>
+          <input
+            class="form-control"
+            type="Password"
+            name="Password"
+            ngModel
+            required
+            #Password="ngModel"
+            placeholder="Password"
+          />
+        </div>
+
+        <div *ngIf="show == true" role="alert">
+          <strong>Username and/or Password are incorrect</strong>
+        </div>
+
+        <br />
+        <button class="btn btn-lg btn-primary btn-block btn-signin">
+          Log in
+        </button>
+      </form>
+      <br />
+      <br />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,121 @@
+<div class="row">
+  <navbar></navbar>
+  <div class="card card-container" style="width: 380px">
+    <div id="contenido">
+      <div class="container">
+        <div class="col-sx-12">
+          <form #TicketSubmit="ngForm" (ngSubmit)="AddTicket(TicketSubmit)">
+            <h2>Create New Ticket</h2>
+
+            <div class="form-group">
+              <div class="col-sx-12">
+                <label>Problem Category:</label>
+                <select
+                  name="Ticket_Category_id"
+                  ngModel
+                  #custom
+                  (change)="categoryChange(custom.value)"
+                  required
+                  type="number"
+                  select
+                  class="form-control"
+                >
+                  <option value="0">--Select--</option>
+                  <option
+                    *ngFor="let custom of customs"
+                    value="{{ custom.Ticket_Category_id }}"
+                  >
+                    {{ custom.Ticket_Category }}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div *ngIf="showform_technician == true" role="alert">
+              <div class="form-group">
+                <div class="col-sx-12">
+                  <label>Technician Assigned</label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    readonly
+                    name="Technician"
+                    value="{{ TechName }}"
+                    [(ngModel)]="TechName"
+                    requiered
+                    class="form-control"
+                  />
+                </div>
+              </div>
+            </div>
+            <div *ngIf="showform_technician == true" role="alert">
+              <div class="form-group">
+                <div class="col-sx-12">
+                  <label>User id</label>
+                  <input
+                    class="form-control"
+                    type="number"
+                    name="User_id"
+                    value="{{ User_id }}"
+                    [(ngModel)]="User_id"
+                    requiered
+                    class="form-control"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sx-12">
+                <label>Created By:</label>
+                <input
+                  type="text"
+                  select
+                  class="form-control"
+                  value="{{ id }}"
+                  [(ngModel)]="id"
+                  required
+                  name="Created_By"
+                  #Created_By="ngModel"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sx-12">
+                <label>Problem:</label>
+                <textarea
+                  required
+                  maxlength="300"
+                  type="text"
+                  name="Problem"
+                  ngModel
+                  #Problem="ngModel"
+                  cols="30"
+                  rows="10"
+                  class="form-control"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="col-sx-12">
+              <div class="col-md-4">
+                <button class="btn btn-lg btn-primary btn-block btn-signup">
+                  Add Ticket
+                </button>
+              </div>
+              <div class="col-md-4">
+                <button
+                  class="btn btn-lg btn-warning btn-block btn-signup"
+                  (click)="cancelNewTicket()"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

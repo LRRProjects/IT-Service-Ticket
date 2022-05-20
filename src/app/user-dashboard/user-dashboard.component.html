@@ -1,0 +1,43 @@
+<div class="row">
+  <navbar></navbar>
+
+  <div id="contenido">
+    <div class="container">
+      <div class="col-md-12">
+        <table class="table table-bordered table-striped table-hover">
+          <thead>
+            <h1>Tickets</h1>
+            <tr>
+              <th class="text-center">Ticket Status</th>
+              <th class="text-center">Ticket Category</th>
+              <th class="text-center">Technician</th>
+              <th class="text-center">Problem</th>
+              <th class="text-center">Ticket Number</th>
+              <th class="text-center">Created By</th>
+              <th class="text-center">Modified By</th>
+              <th class="text-center">Created</th>
+              <th class="text-center">Modified</th>
+              <th class="text-center">Technician Commment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let custom of customs">
+              <td>{{ custom.Ticket_Status }}</td>
+              <td>{{ custom.Ticket_Category }}</td>
+              <td>{{ custom.Name }} {{ custom.Lastname }}</td>
+              <td>{{ custom.Problem }}</td>
+              <td>{{ custom.Ticket_Number }}</td>
+
+              <td>{{ Name }} {{ Lastname }}</td>
+              <td>{{ custom.Modified_By }}</td>
+
+              <td>{{ custom.Created }}</td>
+              <td>{{ custom.Modified }}</td>
+              <td>{{ custom.Technician_Comment }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

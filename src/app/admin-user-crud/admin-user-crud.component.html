@@ -1,0 +1,334 @@
+<div class="row">
+  <navbar></navbar>
+
+  <div id="contenido">
+    <div class="container">
+      <div class="col-md-12">
+        <h1>Users</h1>
+        <table class="table table-bordered table-striped table-hover">
+          <thead>
+            <tr>
+              <th class="text-center">Name</th>
+              <th class="text-center">Lastname</th>
+              <th class="text-center">Username</th>
+              <th class="text-center">Password</th>
+              <th class="text-center">Created On</th>
+              <th class="text-center">Modified On</th>
+              <th class="text-center">Rol</th>
+              <th class="text-center">Active</th>
+              <th class="text-center">Created By</th>
+              <th class="text-center">Modified By</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let custom of customs">
+              <td>{{ custom.Name }}</td>
+              <td>{{ custom.Lastname }}</td>
+              <td>{{ custom.Username }}</td>
+              <td>{{ custom.Password }}</td>
+              <td>{{ custom.Create_date }}</td>
+              <td>{{ custom.Modify_Time }}</td>
+              <td>{{ custom.Rol }}</td>
+              <td>{{ custom.Active }}</td>
+              <td>{{ custom.Created_By }}</td>
+              <td>{{ custom.Modified_By }}</td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-info"
+                  (click)="showeditUserform(custom)"
+                >
+                  <i class="fa fa-edit"></i>
+                </button>
+                <button class="btn btn-danger" (click)="removeUser(custom)">
+                  <i class="fa fa-minus"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-md-12">
+        <button class="btn btn-success" (click)="showAddUserForm()">
+          <i class="fa fa-plus"></i>
+        </button>
+        <br />
+        <br />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row dataform">
+  <div class="card1 card1-container1">
+    <div id="contenido1">
+      <div class="container">
+        <form
+          *ngIf="userForm"
+          #TicketSubmit="ngForm"
+          (ngSubmit)="AddTicket(TicketSubmit)"
+        >
+          <h2>Add User Details</h2>
+          <div class="col-sx-12">
+            <label>Name:</label>
+            <input
+              type="text"
+              select
+              class="form-control"
+              class="form-group input-group"
+              name="Name"
+              [(ngModel)]="newUser.name"
+            />
+          </div>
+
+          <div class="col-sx-12">
+            <label>Lastname:</label>
+            <input
+              type="text"
+              select
+              class="form-control"
+              class="form-group input-group"
+              name="Lastname"
+              [(ngModel)]="newUser.Lastname"
+            />
+          </div>
+          <div class="col-sx-12">
+            <label>Username:</label>
+            <input
+              type="text"
+              select
+              class="form-control"
+              class="form-group input-group"
+              name="Username"
+              [(ngModel)]="newUser.Username"
+            />
+          </div>
+          <div class="col-sx-12">
+            <label>Password:</label>
+            <input
+              type="text"
+              select
+              class="form-control"
+              class="form-group input-group"
+              name="Password"
+              [(ngModel)]="newUser.Password"
+            />
+          </div>
+          <div class="col-sx-12">
+            <label>Role:</label>
+            <select
+              name="Rol"
+              [(ngModel)]="newUser.Rol_id"
+              type="text"
+              select
+              class="form-control"
+            >
+              <option value="{{ rol.id }}" *ngFor="let rol of rols">
+                {{ rol.Rol }}
+              </option>
+            </select>
+          </div>
+
+          <form>
+            <div class="col-sx-12">
+              <div class="form-group input-group">
+                <label>Active:</label>
+                <input
+                  type="radio"
+                  select
+                  class="form-control"
+                  class="form-group input-group"
+                  name="Active"
+                  [(ngModel)]="newUser.Active"
+                  value="true"
+                  checked
+                />
+              </div>
+            </div>
+            <div class="col-sx-12">
+              <div class="form-group input-group">
+                <label>Inactive:</label>
+                <input
+                  type="radio"
+                  select
+                  class="form-control"
+                  class="form-group input-group"
+                  name="Inactive"
+                  [(ngModel)]="newUser.Active"
+                  value="false"
+                />
+              </div>
+            </div>
+          </form>
+
+          <div class="col-sx-12">
+            <label>Created By:</label
+            ><input
+              type="text"
+              readonly
+              select
+              class="form-control"
+              class="form-group input-group"
+              value="{{ Id }}"
+              [(ngModel)]="Id"
+              required
+              name="Created_By"
+              #Created_By="ngModel"
+            />
+          </div>
+
+          <div class="col-sx-12">
+            <label>
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="saveUser(newUser)"
+              >
+                Submit
+              </button>
+              <button
+                type="button"
+                class="btn btn-warning"
+                (click)="cancelNewUser()"
+              >
+                Cancel
+              </button>
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row dataform">
+  <div class="card2 card2-container2">
+    <div id="contenido2">
+      <div class="container">
+        <form *ngIf="editUserForm">
+          <h2>Edit User Details</h2>
+          <div class="col-sx-12">
+            <label>Name:</label>
+            <input
+              type="text"
+              select
+              class="form-control"
+              class="form-group input-group"
+              name="Name"
+              [(ngModel)]="editedUser.Name"
+            />
+          </div>
+          <div class="col-sx-12">
+            <label>Lastname:</label>
+            <input
+              type="text"
+              select
+              class="form-control"
+              class="form-group input-group"
+              name="Lastname"
+              [(ngModel)]="editedUser.Lastname"
+            />
+          </div>
+          <div class="col-sx-12">
+            <label>Username:</label>
+            <input
+              type="text"
+              select
+              class="form-control"
+              class="form-group input-group"
+              name="Username"
+              [(ngModel)]="editedUser.Username"
+            />
+          </div>
+          <div class="col-sx-12">
+            <label>Password:</label>
+            <input
+              type="text"
+              select
+              class="form-control"
+              class="form-group input-group"
+              name="Password"
+              [(ngModel)]="editedUser.Password"
+            />
+          </div>
+          <div class="col-sx-12">
+            <label>Role:</label>
+            <select
+              name="Rol"
+              [(ngModel)]="editedUser.Rol_id"
+              type="text"
+              select
+              class="form-control"
+            >
+              <option value="{{ rol.id }}" *ngFor="let rol of rols">
+                {{ rol.Rol }}
+              </option>
+            </select>
+          </div>
+          <div class="col-sx-12">
+            <form>
+              <div class="col-sx-12">
+                <label>Active:</label>
+                <input
+                  type="radio"
+                  select
+                  class="form-control"
+                  class="form-group input-group"
+                  name="Active"
+                  [(ngModel)]="editedUser.Active"
+                  value="true"
+                />
+              </div>
+              <div class="col-sx-12">
+                <label>Inactive:</label>
+                <input
+                  type="radio"
+                  select
+                  class="form-control"
+                  class="form-group input-group"
+                  name="Inactive"
+                  [(ngModel)]="editedUser.Active"
+                  value="false"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="col-sx-12">
+            <label>Modified By:</label
+            ><input
+              type="text"
+              readonly
+              select
+              class="form-control"
+              class="form-group input-group"
+              value="{{ Id }}"
+              [(ngModel)]="Id"
+              required
+              name="Modified_By"
+              #Modified_By="ngModel"
+            />
+          </div>
+          <div class="col-sx-12">
+            <label>
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="updateUser(editedUser)"
+              >
+                Submit
+              </button>
+              <button
+                type="button"
+                class="btn btn-warning"
+                (click)="cancelEdits()"
+              >
+                Cancel
+              </button>
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

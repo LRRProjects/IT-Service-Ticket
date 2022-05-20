@@ -1,0 +1,25 @@
+@media (min-width: 1000px) and (max-width: 1000px) {
+  #contenido {
+    padding-left: 50%;
+  }
+  button {
+    width: 10%;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1000px) {
+  #contenido {
+    padding-left: 50%;
+  }
+  button {
+    width: 10%;
+  }
+}
+@media (min-width: 1000px) {
+  #contenido {
+    padding-left: 12%;
+  }
+}
+
+.table {
+  width: 1150px;
+}

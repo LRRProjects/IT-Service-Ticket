@@ -1,0 +1,166 @@
+<navbar></navbar>
+<div class="card card-container" style="width: 5000px">
+  <div id="contenido">
+    <div class="container">
+      <div class="col-md-12">
+        <h1>Categories</h1>
+        <table class="table table-bordered table-striped table-hover">
+          <thead>
+            <tr>
+              <th class="text-center">Ticket Category</th>
+              <th class="text-center">Created By</th>
+              <th class="text-center">Modified By</th>
+              <th class="text-center">Created On</th>
+              <th class="text-center">Modified On</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let custom of customs">
+              <td>{{ custom.Ticket_Category }}</td>
+              <td>{{ custom.Created_By }}</td>
+              <td>{{ custom.Modified_By }}</td>
+              <td>{{ custom.Created }}</td>
+              <td>{{ custom.Modified }}</td>
+
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-info"
+                  (click)="showedit_Ticket_Category_Form(custom)"
+                >
+                  <i class="fa fa-edit"></i>
+                </button>
+                <button
+                  class="btn btn-danger"
+                  (click)="removeTicket_Category(custom)"
+                >
+                  <i class="fa fa-minus"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <button class="btn btn-success" (click)="showAddTicket_CategoryForm()">
+          <i class="fa fa-plus"></i>
+        </button>
+        <br />
+        <br />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row dataform">
+  <div class="card1 card1-container1">
+    <div id="contenido1">
+      <div class="container">
+        <form *ngIf="Ticket_Category_Form">
+          <h2>Add New Categories</h2>
+          <div class="col-sx-12">
+            <label>Ticket Category:</label>
+            <input
+              type="text"
+              select
+              class="form-control"
+              class="form-group input-group"
+              name="Ticket_Category"
+              [(ngModel)]="newTicket_Category.Ticket_Category1"
+            />
+
+            <div class="col-sx-12">
+              <label>Created By:</label
+              ><input
+                type="text"
+                readonly
+                select
+                class="form-control"
+                class="form-group input-group"
+                value="{{ Id }}"
+                [(ngModel)]="Id"
+                required
+                name="Created_By"
+                #Created_By="ngModel"
+              />
+            </div>
+
+            <div class="col-sx-12">
+              <label>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  (click)="saveTicket_Category(newTicket_Category)"
+                >
+                  Submit
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-warning"
+                  (click)="cancelNewTicket_Category()"
+                >
+                  Cancel
+                </button>
+              </label>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row dataform">
+  <div class="card2 card2-container2">
+    <div id="contenido2">
+      <div class="container">
+        <form *ngIf="edit_Ticket_Category_Form">
+          <h2>Edit Category Details</h2>
+          <div class="col-sx-12">
+            <label>Ticket Category:</label>
+            <input
+              type="text"
+              select
+              class="form-control"
+              class="form-group input-group"
+              name="Ticket Category1"
+              [(ngModel)]="editedTicket_Category.Ticket_Category1"
+            />
+          </div>
+          <div class="col-sx-12">
+            <label>Modified By:</label
+            ><input
+              type="text"
+              readonly
+              select
+              class="form-control"
+              class="form-group input-group"
+              value="{{ Id }}"
+              [(ngModel)]="Id"
+              required
+              name="Modified_By"
+              #Modified_By="ngModel"
+            />
+          </div>
+          <div class="col-sx-12">
+            <label>
+              <button
+                type="button"
+                class="btn btn-primary"
+                (click)="updateTicket_Category(editedTicket_Category)"
+              >
+                Submit
+              </button>
+              <button
+                type="button"
+                class="btn btn-warning"
+                (click)="cancelEdits()"
+              >
+                Cancel
+              </button>
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
